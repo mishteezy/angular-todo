@@ -1,0 +1,46 @@
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput
+           formControlName="title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput
+           formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Priority</mat-label>
+    <mat-select formControlName="priority">
+      <mat-option *ngFor="let priority of priorityOptions"
+                  [value]="priority.value">{{priority.label}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>User</mat-label>
+    <mat-select multiple
+                formControlName="users">
+      <mat-option *ngFor="let user of users | async"
+                  [value]="user">{{user}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Deadline</mat-label>
+    <input matInput
+           [matDatepicker]="picker"
+           formControlName="deadline">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix
+                           [for]="
+           picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-stroked-button
+          [disabled]="loading$ | async"
+          (click)="submit()">Create Task</button>
+</form>

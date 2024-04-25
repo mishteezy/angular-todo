@@ -1,0 +1,25 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0 10rem;
+  display: flex;
+  justify-content: space-between;
+
+  &-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &-item {
+    cursor: pointer;
+
+    &:hover {
+      color: grey;
+    }
+  }
+}
+
+.active {
+  color: grey;
+}

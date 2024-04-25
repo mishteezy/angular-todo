@@ -1,0 +1,28 @@
+<mat-card *ngIf="task"
+          [formGroup]="editForm">
+  <mat-card-title class="task_title">{{task.title}}</mat-card-title>
+  <mat-card-content class="task_content">
+    <div class="card-left ">
+      <p>Name: {{task.name}}</p>
+      <p>Priority: {{priorityMapper[task.priority]}}</p>
+      <p>Deadline: {{task.deadline | date}}</p>
+    </div>
+    <div class="card-right">
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let status of statusOptions"
+                      [value]="status.value">{{status.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Users</mat-label>
+        <mat-select multiple
+                    formControlName="users">
+          <mat-option *ngFor="let user of users | async"
+                      [value]="user">{{user}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>

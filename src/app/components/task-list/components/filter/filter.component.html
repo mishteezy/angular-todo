@@ -1,0 +1,30 @@
+<div class="filters"
+     [formGroup]="filterForm">
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option *ngFor="let status of statusOptions"
+                  [value]="status.value">{{status.label}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>User</mat-label>
+    <mat-select formControlName="user">
+      <mat-option *ngFor="let user of users | async"
+                  [value]="user">{{user}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Deadline</mat-label>
+    <mat-select formControlName="deadline">
+      <mat-option *ngFor="
+                let
+                deadline
+                of
+                deadlineOptions | async"
+                  [value]="deadline">{{deadline | date}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

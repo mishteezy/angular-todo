@@ -1,0 +1,29 @@
+* {
+  color: white;
+}
+
+.task_title {
+  padding: 1rem;
+}
+
+.task_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.user {
+  background-color: #212121;
+  padding: 0.3rem;
+  margin-right: 0.25rem;
+  border-radius: 5px;
+}
