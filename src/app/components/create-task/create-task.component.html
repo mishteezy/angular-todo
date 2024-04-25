@@ -31,6 +31,7 @@
   <mat-form-field>
     <mat-label>Deadline</mat-label>
     <input matInput
+           [min]="minDate"
            [matDatepicker]="picker"
            formControlName="deadline">
     <mat-hint>MM/DD/YYYY</mat-hint>

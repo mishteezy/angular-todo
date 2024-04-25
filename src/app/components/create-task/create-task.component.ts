@@ -25,6 +25,8 @@ export class CreateTaskComponent implements OnDestroy {
     users: this.fb.control([], Validators.required),
   });
 
+  minDate = new Date();
+
   subscriptions: Subscription[] = [];
 
   readonly loading$ = this.taskService.loading$;
